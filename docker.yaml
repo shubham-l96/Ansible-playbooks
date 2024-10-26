@@ -1,0 +1,15 @@
+---
+- hosts: web
+  become: true
+  tasks:
+  - name: install package
+    apt:
+     name=docker.io
+     state=present
+  - name: start the service
+    service:
+     name=docker
+     state=started
+     enabled=yes
+...
+
